@@ -1,0 +1,229 @@
+/* Configurações Globais e Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive, monospace;
+}
+
+body {
+    background-color: #b3c5d7;
+    color: #4a3b52;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fundo Dreamcore Nostálgico (Céu liminar / Liminal Space vibe) */
+.dream-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #dfbdfc 0%, #c3bef7 50%, #add7f6 100%);
+    opacity: 0.6;
+    z-index: -2;
+}
+
+/* Containers principais */
+.container {
+    background: #fffdf9;
+    border: 4px solid #4a3b52;
+    box-shadow: 8px 8px 0px #73628a;
+    padding: 30px;
+    width: 90%;
+    max-width: 480px;
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Títulos e Textos Pixelados */
+.pixel-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #574b90;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px #f3a683;
+}
+
+.subtitle {
+    font-size: 0.6rem;
+    color: #7d7393;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #574b90;
+}
+
+/* Botões Estilo Retrô / Dreamcore */
+.pixel-btn {
+    background-color: #f3a683;
+    color: #fff;
+    border: 4px solid #4a3b52;
+    padding: 12px 24px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #4a3b52;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.pixel-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #4a3b52;
+}
+
+.trigger-btn {
+    background-color: #63cdda;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Inputs de Texto */
+.password-display-container {
+    margin-bottom: 25px;
+}
+
+.pixel-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.75rem;
+    border: 4px solid #4a3b52;
+    background-color: #f7f1e3;
+    color: #2c2c54;
+    text-align: center;
+    outline: none;
+}
+
+/* Barra de Segurança Customizada */
+.strength-wrapper {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.strength-wrapper .label {
+    font-size: 0.6rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.strength-meter-bg {
+    height: 20px;
+    border: 4px solid #4a3b52;
+    /* Gradiente Nostálgico: Vermelho (Inseguro) -> Amarelo -> Verde/Azul (Seguro) */
+    background: linear-gradient(to right, #ff7675 0%, #ffeaa7 50%, #55efc4 100%);
+    position: relative;
+}
+
+/* Indicador que se move para a esquerda/direita */
+#strength-pointer {
+    width: 12px;
+    height: 100%;
+    background: #4a3b52;
+    position: absolute;
+    left: 0%; /* Controlado pelo JS */
+    transition: left 0.3s ease;
+}
+
+/* Sliders e Controles de Caracteres */
+.control-group {
+    text-align: left;
+    font-size: 0.6rem;
+    margin-bottom: 25px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.pixel-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #dcdde1;
+    border: 2px solid #4a3b52;
+    outline: none;
+}
+
+.pixel-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 20px;
+    background: #f5cd79;
+    border: 2px solid #4a3b52;
+    cursor: pointer;
+}
+
+/* Checklist de Opções */
+.shadow-box {
+    background: #f8f9fa;
+    border: 2px dashed #4a3b52;
+    padding: 15px;
+    text-align: left;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.55rem;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.check-item:last-child {
+    margin-bottom: 0;
+}
+
+.check-item input {
+    display: none;
+}
+
+.custom-box {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #4a3b52;
+    background: #fff;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.check-item input:checked + .custom-box::before {
+    content: "X";
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    color: #e66767;
+    top: 1px;
+    left: 2px;
+}
+
+/* Rodapé */
+.dream-footer {
+    position: fixed;
+    bottom: 10px;
+    font-size: 0.45rem;
+    color: #7d7393;
+}
+
+/* Animação Sutil Flutuante Dreamcore */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
