@@ -3,55 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Senha Perfeita *.*</title>
+    <title>Dreamcore Password Generator</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Press Start 2P', cursive;
-        }
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        body {
-            background-color: #d4d0c8; /* Cinza clássico Windows 95 */
-            background-image: radial-gradient(#b5a6c9 20%, transparent 20%), radial-gradient(#cbd5e1 20%, transparent 20%);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
-            color: #4a3b5c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            overflow-y: auto;
-        }
+    <div class="dream-bg"></div>
 
-        /* Estilo Dreamcore/WebWeb Nostalgia */
-        .window {
-            background: #f1e9f7;
-            border: 4px solid #4a3b5c;
-            box-shadow: 8px 8px 0px #9d8db5;
-            width: 90%;
-            max-width: 450px;
-            padding: 25px;
-            text-align: center;
-            position: relative;
-        }
+    <div id="welcome-screen" class="container">
+        <h1 class="pixel-title">SUA SENHA PERFEITA</h1>
+        <p class="subtitle">Você já esteve aqui antes?...</p>
+        <button id="btn-enter" class="pixel-btn">ENTRAR</button>
+    </div>
 
-        h1 {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #6c528e;
-            text-shadow: 2px 2px #ffdef2;
-        }
+    <div id="generator-screen" class="container hidden">
+        <h2 class="section-title">GERADOR</h2>
 
-        /* Botões */
-        button {
-            background: #ffdef2;
-            border: 3px solid #4a3b5c;
-            padding: 12px 20px;
-            font-size: 12px;
-            cursor: pointer;
-            color: #4a3b5
+        <div class="password-display-container">
+            <input type="text" id="password-output" class="pixel-input" placeholder="Sua senha surgirá aqui..." autocomplete="off">
+        </div>
+
+        <div class="strength-wrapper">
+            <span class="label">Segurança:</span>
+            <div class="strength-meter-bg">
+                <div id="strength-pointer"></div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="char-count">Caracteres: <span id="char-val">12</span></label>
+            <input type="range" id="char-count" min="6" max="32" value="12" class="pixel-slider">
+        </div>
+
+        <div class="checklist shadow-box">
+            <label class="check-item">
+                <input type="checkbox" id="chk-upper" checked>
+                <span class="custom-box"></span> Letras Maiúsculas
+            </label>
+            <label class="check-item">
+                <input type="checkbox" id="chk-lower" checked>
+                <span class="custom-box"></span> Letras Minúsculas
+            </label>
+            <label class="check-item">
+                <input type="checkbox" id="chk-numbers" checked>
+                <span class="custom-box"></span> Números
+            </label>
+            <label class="check-item">
+                <input type="checkbox" id="chk-symbols">
+                <span class="custom-box"></span> Caracteres Especiais
+            </label>
+        </div>
+
+        <button id="btn-generate" class="pixel-btn trigger-btn">GERE A SENHA</button>
+    </div>
+
+    <footer class="dream-footer">
+        <p>© 2004 - Memories OS</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
